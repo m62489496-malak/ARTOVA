@@ -1,0 +1,224 @@
+
+
+body{
+    height: 5000px;
+}
+.header{
+    width: 80%;
+    height: 55px;
+    background-color:pink;
+    position: fixed;
+    /* top:0%; */
+    left:160px;
+    margin-top: 20px;
+    /* top left right bottom */
+    border-radius: 20px;
+    
+    
+}
+
+.img1{
+    width: 150px;
+    height: 55px;
+    float: left;
+    margin-right: 200px;
+}
+.name{ 
+    display:inline-block ;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+.list{
+    list-style: none;
+    float: right;
+    margin-right: 200px;
+}
+
+.list li{
+display:inline-block ;
+color:black;
+margin-left: 20px;
+}
+.list li a{
+    text-decoration: none;
+    color:black;
+}
+.h2{
+    color: black;
+}
+.list li a:hover{
+    color: blue;
+}
+
+ body{
+    height: 5000px;
+    background-image: url(../images/100.jpeg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} 
+.div1 {
+    width: 300px;
+    height: 500px;
+    margin-left: 150px;
+    float:left ;
+    border:rgb(197, 131, 185) solid 3px;
+    text-align: center;
+    background-color: pink;
+}
+.div10{
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/20.jpeg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:rgb(197, 131, 185) solid 3px;
+    border-radius: 50px;              /* اعمل قوس لدائره نصف قطرهها كذا */
+    margin: auto;
+    
+}
+.title1{
+
+ text-align: center;
+}
+.p1{
+    color: black;
+    text-align: center;
+    font-style: italic;
+    
+}
+
+.b1{
+    width: 150px;
+    height: 30px;
+    border: 10 px;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(208, 202, 202);
+   
+}
+.div2 {
+    width: 300px;
+    height: 500px;
+    margin-left: 150px;
+    border:rgb(197, 131, 185) solid 3px;
+    background-color: pink;
+    float:left ;
+    text-align: center;
+}
+.div20{
+    width: 100px;
+    height: 100px;
+        
+    background-image: url(../images/50.jpeg);
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:rgb(197, 131, 185) solid 3px;
+    border-radius: 50px;              /* اعمل قوس لدائره نصف قطرهها كذا */
+    margin: auto;
+}
+.title2{
+
+ text-align: center;
+}
+.p2{
+    color: black;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+}
+.b2{
+    width: 150px;
+    height: 30px;
+    border: 10;
+    border-radius: 5px;
+    color: black;
+    background-color:  rgb(208, 202, 202);
+   
+}
+.div3 {
+    width: 300px;
+    height: 500px;
+    margin-left: 150px;
+    border:rgb(197, 131, 185) solid 3px;
+     background-color: pink;
+    float:left ;
+    text-align: center;
+}
+.div30{
+    width: 100px;
+    height: 100px;
+    
+     background-image: url(../images/60.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border:rgb(197, 131, 185) solid 3px;
+    border-radius: 50px;              /* اعمل قوس لدائره نصف قطرهها كذا */
+    margin:auto;
+}
+.title3{
+
+ text-align: center;
+}
+.p3{
+    color: black;
+    text-align: center;
+    font-style: italic;
+}
+
+.b3{
+    width: 150px;
+    height: 30px;
+    border: 10;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(208, 202, 202);
+    
+}
+
+
+.div1:hover{
+    background-color:rgb(247, 216, 221);
+}
+.div2:hover{
+    background-color:rgb(247, 216, 221);
+}
+.div3:hover{
+    background-color:rgb(247, 216, 221);
+}
+.b1:hover{
+    color: rgb(95, 54, 80);
+    background-color: rgb(247, 205, 226);
+    border-radius: 7px;
+    height: 40;
+}
+.b2:hover{
+    color:rgb(95, 54, 80);
+    background-color:  rgb(247, 205, 226);
+    border-radius: 7px;
+    height: 40;
+}
+.b3:hover{
+    color: rgb(95, 54, 80);
+    background-color:  rgb(247, 205, 226);
+    border-radius: 7px;
+    height: 40;
+}
+
+
+.p1::selection{
+    background-color: rgb(224, 76, 212);
+}
+.p2::selection{
+    background-color: rgb(224, 76, 212);
+}
+.p3::selection{
+    background-color: rgb(224, 76, 212);
+}

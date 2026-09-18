@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(201, 243, 188);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.box{
+    width: 45%;
+    height: 200px;
+    background-color: #ddd;
+    display: flex;
+    padding: 10px;
+}
+
+.box1{
+    flex-direction: row;
+    align-items: flex-end;  
+    justify-content: flex-start;
+    background-image: url(../images/grass1.jpeg);
+}
+
+.box2{
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end; 
+    background-image: url(../images/grass1.jpeg);
+}
+
+.bottom{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.box3{
+    width: 45%;
+    height: 200px;
+    background-color: #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    background-image: url(../images/grass1.jpeg);
+}
+
+.i{
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid rgb(4, 62, 22);
+}
+.inner1{
+background-image: url(../images/flower1.jpeg);
+}
+.inner2{
+background-image: url(../images/flower2.jpeg);
+}
+.inner3{
+background-image: url(../images/flower3.jpeg);
+}
+.inner4{
+background-image: url(../images/flower4.jpeg);
+}
+.inner5{
+background-image: url(../images/flower5.jpeg);
+}
+.inner6{
+background-image: url(../images/flower6.jpeg);
+}
+.inner7{
+background-image: url(../images/flower7.jpeg);
+}
+.inner8{
+background-image: url(../images/flower8.jpeg);
+}
+.inner9{
+background-image: url(../images/flower9.jpeg);
+}

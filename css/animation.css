@@ -1,0 +1,89 @@
+body{
+    background-image: url(../images/sea.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+/* left divs */
+.div1, .div2, .div3 {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  animation-name: moveRight;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveRight {
+  0%   { left: 0px; }
+  100% { left: calc(100vw - 250px); }
+}
+
+/* right divs */
+.div4, .div5, .div6 {
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  right: 0px;
+  animation-name: moveLeft;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveLeft {
+  0%   { right: 0px; }
+  100% { right: calc(100vw - 250px); }
+}
+
+
+.div1 {
+  background-image: url(../images/f1.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 0px;
+  animation-delay: 0s;
+}
+
+.div4 {
+  background-image: url(../images/f4.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 100px;
+  animation-delay: 3s;
+}
+
+.div2 {
+   background-image: url(../images/f2.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 200px;
+  animation-delay: 6s;
+}
+
+.div5 {
+ background-image: url(../images/f5.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 300px;
+  animation-delay: 9s;
+}
+
+.div3 {
+ background-image: url(../images/f3.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 400px;
+  animation-delay: 12s;
+}
+
+.div6 {
+  background-image: url(../images/f6.jpeg);
+  background-size: cover;
+  background-position: center;
+  top: 500px;
+  animation-delay: 15s;
+}

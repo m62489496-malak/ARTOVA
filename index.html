@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ARTOVA| Fine Art Gallery </title>
+        <link rel="stylesheet" href="css/ARTOVA.css">     
+        <link rel="stylesheet" href="css/all.css">
+    </head>
+    <body>
+  
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <a href="#" class="tb-link">About Us</a>
+      <a href="#" class="tb-link">Privacy</a>
+      <a href="#" class="tb-link">FAQ</a>
+      <a href="#" class="tb-link">Careers</a>
+    </div>
+    <div class="top-bar-right">
+      <a href="#" class="tb-link">My Wishlist</a>
+      <a href="#" class="tb-link">Track Your Order</a>
+      <div class="tb-separator"></div>
+      <div class="tb-icons">
+        <a href="#" class="tb-icon-link flip-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="tb-icon-link flip-icon"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="tb-icon-link flip-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="tb-icon-link flip-icon"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo" id="logoLink">ART<span>OVA</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="nav-item">Home</a></li>
+      <li><a href="#" class="nav-item">Paintings</a></li>
+      <li><a href="#" class="nav-item">Sculptures</a></li>
+      <li><a href="#" class="nav-item">Photography</a></li>
+      <li class="dropdown">
+        <a href="#" class="nav-item dropdown-toggle">
+          Pages <i class="fas fa-chevron-down chevron-icon"></i>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-col">
+            <div class="drop-section-label">Pages</div>
+            <a href="#" class="drop-link">Login</a>
+            <a href="#" class="drop-link">Cart</a>
+            <a href="#" class="drop-link">Product Details</a>
+            <a href="#" class="drop-link">Product Checkout</a>
+          </div>
+          <div class="dropdown-col">
+            <div class="drop-section-label">Blog</div>
+            <a href="#" class="drop-link">Element</a>
+            <a href="#" class="drop-link">Blog Details</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#" class="nav-item">Contact</a></li>
+    </ul>
+    <div class="nav-icons">
+      <a href="#" class="nav-icon-btn" id="searchBtn"><i class="fas fa-search"></i></a>
+      <a href="#" class="nav-icon-btn"><i class="far fa-heart"></i></a>
+      <a href="#" class="nav-icon-btn" style="position:relative">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== ANNOUNCEMENT BAR ===== -->
+  <div class="announce-bar">
+    <span class="announce-text">
+      Hurry! Limited Edition Artworks — Up to <strong>40% Off</strong> &nbsp;|&nbsp;
+      Free Worldwide Shipping on Orders Over $500 &nbsp;|&nbsp;
+      New Artists Added Weekly
+    </span>
+    <a href="#" class="announce-cta js-hover-scale">Shop Now</a>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-slider" id="heroSlider">
+
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <div class="slide-bg" style="background-image:url('Artova-img/door.jpeg')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag">New Collection 2025</div>
+          <h1 class="slide-title">Where Art<br><em>Speaks</em><br>Volumes</h1>
+          <p class="slide-desc">Discover extraordinary works from the world's most visionary contemporary artists. Each piece tells an untold story.</p>
+          <a href="#" class="btn-hero js-hover-btn">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1600&q=80')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag">Limited Editions</div>
+          <h1 class="slide-title">Rare<br><em>Masterpieces</em><br>Await</h1>
+          <p class="slide-desc">Own a piece of history. Our curated limited editions are crafted by award-winning artists from around the globe.</p>
+          <a href="#" class="btn-hero js-hover-btn">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=1600&q=80')"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content">
+          <div class="slide-tag">Photography Series</div>
+          <h1 class="slide-title">Frozen<br><em>Moments</em><br>Forever</h1>
+          <p class="slide-desc">Fine art photography that transforms spaces. Museum-quality prints delivered to your door.</p>
+          <a href="#" class="btn-hero js-hover-btn">Shop Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="sliderDots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="slider-arrow arrow-prev" id="prevBtn"><i class="fas fa-arrow-left"></i></button>
+    <button class="slider-arrow arrow-next" id="nextBtn"><i class="fas fa-arrow-right"></i></button>
+  </section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="categories">
+  <div class="section-header">
+    <div class="section-tag">Browse By</div>
+    <h2 class="section-title">Explore Our Collections</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="categories-grid">
+
+    <!-- Card 1 -->
+    <div class="cat-card">
+      <div class="cat-img-wrap">
+        <img src="Artova-img/oil painting.jpeg" alt="Paintings"/>
+      </div>
+      <div class="cat-info">
+        <div class="cat-tag">Collection</div>
+        <h3 class="cat-name">Oil Paintings</h3>
+        <p class="cat-desc">Timeless works crafted with passion and precision by master artists.</p>
+        <a href="#" class="cat-link">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="cat-card">
+      <div class="cat-img-wrap">
+        <img src="Artova-img/sculpture.jpeg" alt="Sculptures"/>
+      </div>
+      <div class="cat-info">
+        <div class="cat-tag">Collection</div>
+        <h3 class="cat-name">Sculptures</h3>
+        <p class="cat-desc">Three-dimensional masterpieces that bring space and form to life.</p>
+        <a href="#" class="cat-link">Shop Now</a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="cat-card">
+      <div class="cat-img-wrap">
+        <img src="Artova-img/photography.jpeg" alt="Photography"/>
+      </div>
+      <div class="cat-info">
+        <div class="cat-tag">Collection</div>
+        <h3 class="cat-name">Photography</h3>
+        <p class="cat-desc">Frozen moments turned into fine art prints for your walls.</p>
+        <a href="#" class="cat-link">Shop Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ===== TRENDING SECTION ===== -->
+<section class="trending">
+
+    <div class="trend-header">
+        <h2>Modern Art Collection</h2>
+
+        <ul class="trend-links">
+            <li><a href="paintings.html">paintings</a></li>
+            <li class="active"><a href="sculptures.html">Sculptures</a></li>
+            <li><a href="digital-art.html">Digital Art</a></li>
+            <li><a href="modern-art.html">Modern Art</a></li>
+        </ul>
+    </div>
+
+    <div class="trend-line"></div>
+
+    <div class="trend-container">
+
+        <!-- LEFT ARROW -->
+        <a href="#" class="arrow left-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+
+        <!-- CARD 1 -->
+        <div class="trend-card">
+            <div class="img-box">
+                <img src="Artova-img/sunset3.jpeg" class="main-img">
+                <img src="Artova-img/sunset1.jpeg" class="hover-img">
+                <div class="icons">
+                    <a href="cart.html" class="icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="icon-box"><i class="far fa-heart"></i></a>
+                    <a href="sunset-details.html" class="icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Golden Sunset</h3>
+            <p>Oil Painting Design <span>$120.00</span></p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="trend-card">
+            <div class="img-box">
+                <img src="Artova-img/dream1.jpeg" class="main-img">
+                <img src="Artova-img/dream2.jpeg" class="hover-img">
+                <div class="icons">
+                    <a href="cart.html" class="icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="icon-box"><i class="far fa-heart"></i></a>
+                    <a href="dream-details.html" class="icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Abstract Dreams</h3>
+            <p>Modern Art Collection <span>$150.00</span></p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="trend-card">
+            <div class="img-box">
+                <img src="Artova-img/ocean1.jpeg" class="main-img">
+                <img src="Artova-img/ocean2.jpeg" class="hover-img">
+                <div class="icons">
+                    <a href="cart.html" class="icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="icon-box"><i class="far fa-heart"></i></a>
+                    <a href="ocean-details.html" class="icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Ocean Whisper</h3>
+            <p>Inspired by The Calm of the Sea <span>$180.00</span></p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="trend-card">
+            <div class="img-box">
+                <img src="Artova-img/vintage1.jpeg" class="main-img">
+                <img src="Artova-img/vintage2.jpeg" class="hover-img">
+                <div class="icons">
+                    <a href="cart.html" class="icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="icon-box"><i class="far fa-heart"></i></a>
+                    <a href="vintage-details.html" class="icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Vintage Soul</h3>
+            <p>Times Artistic Expression <span>$200.00</span></p>
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <a href="#" class="arrow right-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+        <!-- ===== TESTIMONIAL SECTION ===== -->
+<section class="testimonial">
+<!-- السهم الأيسر -->
+<a href="#" class="testi-arrow testi-arrow-prev" id="testiPrev">
+    <i class="fas fa-chevron-left"></i>
+</a>
+
+
+  <div class="testi-inner">
+
+    <h2 class="testi-title">Customer Testimonial</h2>
+
+    <p class="testi-text" id="testiText">
+      Everybody is different, which is why we offer styles for every body.
+      Laborum fuga incidunt laboriosam voluptas iure, delectus dignissimos
+      facilis neque nulla earum.
+    </p>
+
+    <div class="testi-line"></div>
+
+    <div class="testi-author" id="testiAuthor">
+      <img src="Artova-img/Adam2.jpeg" alt="Petey Cruiser" id="testiImg">
+      <div class="testi-author-info">
+        <div class="testi-author-name" id="testiName">Petey Cruiser</div>
+        <div class="testi-author-role" id="testiRole">Designer at Colorlib</div>
+      </div>
+    </div>
+
+    <div class="testi-dots" id="testiDots">
+      <div class="testi-dot active" data-index="0"></div>
+      <div class="testi-dot" data-index="1"></div>
+      <div class="testi-dot" data-index="2"></div>
+    </div>
+
+  </div>
+
+<!-- السهم الأيمن -->
+<a href="#" class="testi-arrow testi-arrow-next" id="testiNext">
+    <i class="fas fa-chevron-right"></i>
+</a>
+
+</section>
+<!-- ===== YOU MAY LIKE SECTION ===== -->
+<section class="yml-section">
+
+    <div class="yml-header">
+        <h2>You May Like</h2>
+    </div>
+<br>
+    <div class="yml-container">
+
+        <!-- LEFT ARROW -->
+        <a href="#" class="yml-arrow yml-left">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+
+        <!-- CARD 1 -->
+        <div class="yml-card">
+            <div class="yml-img-box">
+                <img src="Artova-img/night1.jpeg" class="yml-main-img">
+                <img src="Artova-img/night2.jpeg" class="yml-hover-img">
+                <div class="yml-icons">
+                    <a href="cart.html" class="yml-icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="yml-icon-box"><i class="far fa-heart"></i></a>
+                    <a href="like1-details.html" class="yml-icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Midnight Blue</h3>
+            <p>Abstract Collection <span>$89.99</span></p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="yml-card">
+            <div class="yml-img-box">
+                <img src="Artova-img/Alovera1.jpeg" class="yml-main-img">
+                <img src="Artova-img/Alovera2.jpeg" class="yml-hover-img">
+                <div class="yml-icons">
+                    <a href="cart.html" class="yml-icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="yml-icon-box"><i class="far fa-heart"></i></a>
+                    <a href="like2-details.html" class="yml-icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Desert Rose</h3>
+            <p>Watercolor Series <span>$120.00</span></p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="yml-card">
+            <div class="yml-img-box">
+                <img src="Artova-img/Arora.jpeg" class="yml-main-img">
+                <img src="Artova-img/Arora2.jpeg" class="yml-hover-img">
+                <div class="yml-icons">
+                    <a href="cart.html" class="yml-icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="yml-icon-box"><i class="far fa-heart"></i></a>
+                    <a href="like3-details.html" class="yml-icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Arora</h3>
+            <p>Photography print <span>$150.00</span></p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="yml-card">
+            <div class="yml-img-box">
+                <img src="Artova-img/harvest1.jpeg" class="yml-main-img">
+                <img src="Artova-img/harvest2.jpeg" class="yml-hover-img">
+                <div class="yml-icons">
+                    <a href="cart.html" class="yml-icon-box"><i class="fas fa-cart-plus"></i></a>
+                    <a href="wishlist.html" class="yml-icon-box"><i class="far fa-heart"></i></a>
+                    <a href="like4-details.html" class="yml-icon-box"><i class="fas fa-search-plus"></i></a>
+                </div>
+            </div>
+            <h3>Golden Fields</h3>
+            <p>Harvest Season <span>$180.00</span></p>
+        </div>
+
+        <!-- RIGHT ARROW -->
+        <a href="#" class="yml-arrow yml-right">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+
+    </div>
+
+</section>
+        
+    <!-- ===== LATEST NEWS SECTION ===== -->
+<section class="news-section">
+
+    <h2 class="news-title">Latest News</h2>
+
+    <div class="news-container">
+
+        <!-- CARD 1 -->
+        <div class="news-card">
+            <div class="news-img-box">
+                <img src="Artova-img/gazelle.jpeg" alt="Gazelle">
+            </div>
+            <p class="news-tag">Art & Wildlife</p>
+            <h3 class="news-heading">The Graceful Gazelle in Modern Art</h3>
+            <p class="news-desc">Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus..</p>
+            <a href="news1.html" class="news-read">Read More</a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="news-card">
+            <div class="news-img-box">
+                <img src="Artova-img/horse.jpeg" alt="Horse">
+            </div>
+            <p class="news-tag">Art & Wildlife</p>
+            <h3 class="news-heading">The Wild Horse Through an Artist's Eye</h3>
+            <p class="news-desc">Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus..</p>
+            <a href="news2.html" class="news-read">Read More</a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="news-card">
+            <div class="news-img-box">
+                <img src="Artova-img/bear2.jpeg" alt="Brown Bear">
+            </div>
+            <p class="news-tag">Art & Wildlife</p>
+            <h3 class="news-heading">The Brown Bear as a Symbol of Strength</h3>
+            <p class="news-desc">Consectetur adipisicing elit. Laborum fuga incidunt laboriosam voluptas iure, delectus..</p>
+            <a href="news3.html" class="news-read">Read More</a>
+        </div>
+
+    </div>
+
+</section>
+<!-- ===== FEATURES SECTION ===== -->
+<section class="features-section">
+
+    <div class="features-container">
+
+        <!-- 1 -->
+        <div class="feature-item">
+            <div class="feature-icon-wrap">
+                <i class="fas fa-shipping-fast feature-icon-top"></i>
+                <i class="fas fa-shipping-fast feature-icon-bottom"></i>
+            </div>
+            <h3 class="feature-title">Fast & Free Delivery</h3>
+            <p class="feature-desc">Free delivery on all orders</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="feature-item">
+            <div class="feature-icon-wrap">
+                <i class="fa-solid fa-credit-card feature-icon-top"></i>
+               <i class="fa-solid fa-credit-card feature-icon-bottom"></i>
+            </div>
+            <h3 class="feature-title">Secure Payment</h3>
+            <p class="feature-desc">100% secure transactions</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="feature-item">
+            <div class="feature-icon-wrap">
+               <i class="fa-solid fa-money-bill feature-icon-top"></i>
+                <i class="fa-solid fa-money-bill feature-icon-bottom"></i>
+            </div>
+            <h3 class="feature-title">Money Back Guarantee</h3>
+            <p class="feature-desc">30 days return policy</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="feature-item">
+            <div class="feature-icon-wrap">
+                <i class="fas fa-user-clock feature-icon-top"></i>
+                <i class="fas fa-user-clock feature-icon-bottom"></i>
+            </div>
+            <h3 class="feature-title">Online Support</h3>
+            <p class="feature-desc">24/7 customer support</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+
+    <!-- النيوزليتر -->
+    <div class="footer-newsletter">
+        <div class="footer-nl-left">
+            <h3>Subscribe Newsletter</h3>
+            <p>Subscribe newsletter to get 5% off on all artworks.</p>
+        </div>
+        <div class="footer-nl-mid">
+            <input type="email" placeholder="Enter Your Email" class="footer-input">
+            <a href="subscribe.html" class="footer-sub-btn">Subscribe</a>
+        </div>
+        <div class="footer-nl-icons">
+            <a href="https://facebook.com" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" class="footer-social"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" class="footer-social"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <!-- الروابط -->
+    <div class="footer-links-area">
+
+        <!-- اللوجو -->
+        <div class="footer-logo-col">
+            <a href="#" class="footer-logo">ART<span>OVA</span></a>
+        </div>
+
+        <!-- col 1 -->
+        <div class="footer-col">
+            <h4>Paintings</h4>
+            <a href="oil.html">Oil Paintings</a>
+            <a href="watercolor.html">Watercolor</a>
+            <a href="acrylic.html">Acrylic</a>
+            <a href="portrait.html">Portrait</a>
+            <a href="landscape.html">Landscape</a>
+        </div>
+
+        <!-- col 2 -->
+        <div class="footer-col">
+            <h4>Sculptures</h4>
+            <a href="marble.html">Marble</a>
+            <a href="bronze.html">Bronze</a>
+            <a href="wood.html">Wood Carving</a>
+            <a href="clay.html">Clay Art</a>
+            <a href="modern-s.html">Modern</a>
+        </div>
+
+        <!-- col 3 -->
+        <div class="footer-col">
+            <h4>Photography</h4>
+            <a href="wildlife.html">Wildlife</a>
+            <a href="nature.html">Nature</a>
+            <a href="portrait-p.html">Portrait</a>
+            <a href="abstract-p.html">Abstract</a>
+            <a href="urban.html">Urban</a>
+        </div>
+
+        <!-- col 4 -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="track.html">Track Your Order</a>
+            <a href="support.html">Support</a>
+            <a href="faq.html">FAQ</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+    </div>
+
+    <div class="footer-line"></div>
+
+    <!-- الكوبيرايت -->
+    <div class="footer-copy">
+        <p>Copyright © 2026 All rights reserved | Made with <span class="footer-heart"><i class="fas fa-heart"></i></span> by ARTOVA</p>
+    </div>
+
+</footer>
+    </body>
+
+<script>
+// ===== TOP BAR LINKS — خطين راسيين على الجانبين =====
+document.querySelectorAll('.tb-link').forEach(link => {
+  // إنشاء الخطين
+  const lineLeft  = document.createElement('span');
+  const lineRight = document.createElement('span');
+  lineLeft.className  = 'tb-line tb-line-left';
+  lineRight.className = 'tb-line tb-line-right';
+  link.appendChild(lineLeft);
+  link.appendChild(lineRight);
+
+  link.addEventListener('mouseenter', () => {
+    lineLeft.classList.add('show');
+    setTimeout(() => lineRight.classList.add('show'), 120);
+  });
+  link.addEventListener('mouseleave', () => {
+    lineRight.classList.remove('show');
+    setTimeout(() => lineLeft.classList.remove('show'), 120);
+  });
+});
+
+// ===== TOP BAR ICONS — نفس الخطين + flip =====
+document.querySelectorAll('.tb-icon-link').forEach(icon => {
+  const lineLeft  = document.createElement('span');
+  const lineRight = document.createElement('span');
+  lineLeft.className  = 'tb-line tb-line-left';
+  lineRight.className = 'tb-line tb-line-right';
+  icon.appendChild(lineLeft);
+  icon.appendChild(lineRight);
+
+  icon.addEventListener('mouseenter', () => {
+    lineLeft.classList.add('show');
+    setTimeout(() => lineRight.classList.add('show'), 120);
+    // flip الأيقونة لو اتجاهها يمين
+    if (icon.classList.contains('flip-icon')) {
+      icon.querySelector('i').style.transform = 'scaleX(-1)';
+    }
+  });
+  icon.addEventListener('mouseleave', () => {
+    lineRight.classList.remove('show');
+    setTimeout(() => lineLeft.classList.remove('show'), 120);
+    if (icon.classList.contains('flip-icon')) {
+      icon.querySelector('i').style.transform = 'scaleX(1)';
+    }
+  });
+});
+
+// ===== LOGO HOVER =====
+document.getElementById('logoLink').addEventListener('mouseenter', function() {
+  this.classList.add('logo-hover');
+});
+document.getElementById('logoLink').addEventListener('mouseleave', function() {
+  this.classList.remove('logo-hover');
+});
+
+// ===== NAV ITEMS (corner animation) =====
+document.querySelectorAll('.nav-item').forEach(item => {
+  // إنشاء 4 خطوط
+  const lines = {
+    left:   createLine(item, 'left'),
+    bottom: createLine(item, 'bottom'),
+    top:    createLine(item, 'top'),
+    right:  createLine(item, 'right'),
+  };
+
+  item.addEventListener('mouseenter', () => {
+    const w = item.offsetWidth;
+    const h = item.offsetHeight;
+
+    // ضبط أبعاد كل خط
+    setLine(lines.left,   0,    0,    2, h);
+    setLine(lines.bottom, 0,    h-2,  w, 2);
+    setLine(lines.top,    0,    0,    w, 2);
+    setLine(lines.right,  w-2,  0,    2, h);
+
+    // تشغيل بالترتيب
+    // 1 و 2 مع بعض (يسار + أسفل)
+    animateLine(lines.left,   'height', h,  0,    0);
+    animateLine(lines.bottom, 'width',  w,  0,    0);
+
+    // 3 و 4 بعدين (أعلى + يمين) — بعد نص الوقت
+    const delay = 300;
+    setTimeout(() => {
+      animateLine(lines.top,   'width',  w,  0, 0);
+      animateLine(lines.right, 'height', h,  0, 0);
+    }, delay);
+  });
+
+  item.addEventListener('mouseleave', () => {
+    Object.values(lines).forEach(l => {
+      l.style.transition = 'width 0.3s ease, height 0.3s ease';
+      l.style.width  = '0px';
+      l.style.height = '0px';
+    });
+  });
+});
+
+function createLine(parent, pos) {
+  const el = document.createElement('span');
+  el.className = `nav-line nav-line-${pos}`;
+  parent.appendChild(el);
+  return el;
+}
+
+function setLine(el, left, top, w, h) {
+  el.style.left   = left + 'px';
+  el.style.top    = top  + 'px';
+  el.style.width  = w    + 'px';
+  el.style.height = h    + 'px';
+}
+
+function animateLine(el, prop, val, fromW, fromH) {
+  // reset
+  el.style.transition = 'none';
+  if (prop === 'width')  { el.style.width = '0px'; }
+  if (prop === 'height') { el.style.height = '0px'; }
+  el.getBoundingClientRect(); // force reflow
+  el.style.transition = `${prop} 0.35s ease`;
+  if (prop === 'width')  el.style.width  = val + 'px';
+  if (prop === 'height') el.style.height = val + 'px';
+}
+// ===== DROPDOWN (Pages) =====
+const dropdown = document.querySelector('.dropdown');
+const dropMenu  = document.querySelector('.dropdown-menu');
+const chevron   = document.querySelector('.chevron-icon');
+
+dropdown.addEventListener('mouseenter', () => {
+  dropMenu.classList.add('open');
+  chevron.style.transform = 'rotate(180deg)';
+});
+dropdown.addEventListener('mouseleave', () => {
+  dropMenu.classList.remove('open');
+  chevron.style.transform = 'rotate(0deg)';
+});
+
+// ===== NAV ICON BUTTONS (search, heart, bag) =====
+document.querySelectorAll('.nav-icon-btn').forEach(btn => {
+  const lineLeft  = document.createElement('span');
+  const lineRight = document.createElement('span');
+  lineLeft.className  = 'tb-line tb-line-left';
+  lineRight.className = 'tb-line tb-line-right';
+  btn.appendChild(lineLeft);
+  btn.appendChild(lineRight);
+
+  btn.addEventListener('mouseenter', () => {
+    lineLeft.classList.add('show');
+    setTimeout(() => lineRight.classList.add('show'), 120);
+  });
+  btn.addEventListener('mouseleave', () => {
+    lineRight.classList.remove('show');
+    setTimeout(() => lineLeft.classList.remove('show'), 120);
+  });
+});
+
+// ===== ANNOUNCE BAR — shop now يكبر =====
+document.querySelectorAll('.js-hover-scale').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.style.transform    = 'scaleX(1.08)';
+    el.style.letterSpacing = '3px';
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform    = 'scaleX(1)';
+    el.style.letterSpacing = '2px';
+  });
+});
+
+// ===== HERO BUTTON — تغيير اللون =====
+document.querySelectorAll('.js-hover-btn').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    btn.style.background = '#1C1C1C';
+    btn.style.color      = '#FAF7F2';
+    btn.style.borderColor = '#1C1C1C';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.background  = 'transparent';
+    btn.style.color       = '#FAF7F2';
+    btn.style.borderColor = '#FAF7F2';
+  });
+});
+
+// ===== HERO SLIDER =====
+const slides     = document.querySelectorAll('.slide');
+const dots       = document.querySelectorAll('.dot');
+let   current    = 0;
+let   autoTimer;
+
+function goToSlide(n) {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}
+
+function startAuto() {
+  autoTimer = setInterval(() => goToSlide(current + 1), 5000);
+}
+
+function resetAuto() {
+  clearInterval(autoTimer);
+  startAuto();
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => { goToSlide(current + 1); resetAuto(); });
+document.getElementById('prevBtn').addEventListener('click', () => { goToSlide(current - 1); resetAuto(); });
+dots.forEach(d => d.addEventListener('click', () => { goToSlide(+d.dataset.index); resetAuto(); }));
+
+startAuto();
+
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+
+// ===== CATEGORIES — Shop Now hover =====
+document.querySelectorAll('.cat-link').forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    link.style.letterSpacing = '4px';
+    link.style.color = '#D4AF6A';
+  });
+  link.addEventListener('mouseleave', () => {
+    link.style.letterSpacing = '2.5px';
+    link.style.color = '#B8953F';
+  });
+});
+
+
+</script>
+</html>

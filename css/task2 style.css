@@ -1,0 +1,95 @@
+
+ body{
+    height: 5000px;
+    background-image: url(../images/kiko.jpeg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} 
+.div1{
+    width: 600px;
+    height: 200px;
+    background-color:#fff;
+    border: black solid 3px ;
+    border-radius: 30px;
+}
+.title1{
+    color:black;
+    background-color:rgb(196, 243, 249);
+}
+.title1:hover{
+    background-color: rgb(192, 189, 189);
+}
+.p1{
+    color:black;
+    background-color:rgb(196, 243, 249) ;
+}
+.p1:hover{
+    background-color:rgb(192, 189, 189);
+}
+.div2{
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    border: black dotted 3px ;
+    border-radius: 30px;
+}
+.title2{
+    color:black;
+    background-color:rgb(196, 243, 249);
+}
+.title2:hover{
+    background-color: rgb(192, 189, 189);
+}
+.title3{
+    color:black;
+    background-color: rgb(196, 243, 249);
+}
+.div3{
+    color:black;
+    background-color:  rgb(196, 243, 249)
+}
+
+.div3 ol li:hover {
+  background-color:  rgb(192, 189, 189); 
+}
+.div4{
+       color:black;
+    background-color: rgb(196, 243, 249);
+}
+.div4 ol li:hover{
+background-color: rgb(192, 189, 189); 
+}
+.div5{
+       color:black;
+    background-color:  rgb(196, 243, 249);
+}
+.div5 ol li:hover{
+background-color: rgb(192, 189, 189);
+}
+.div6{
+      width: 600px;
+    height: 600px;
+    background-color: #fff;
+    border: black dashed 4px ;
+    border-radius: 10px;
+}
+.title6{
+     color:black;
+    background-color: rgb(196, 243, 249);
+}
+.b1{
+    color:black;
+    background-color: powderblue;
+}
+.b2{
+    color:black;
+    background-color: powderblue;
+}
+.b1:hover{
+    background-color:rgb(192, 189, 189);  
+}
+.b2:hover{
+    background-color:rgb(192, 189, 189);  
+}

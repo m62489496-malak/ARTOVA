@@ -1,0 +1,1214 @@
+/* ===== VARIABLES ===== */
+:root {
+  --ivory:   #FAF7F2;
+  --linen:   #F0EBE1;
+  --charcoal:#1C1C1C;
+  --gold:    #B8953F;
+  --gold-lt: #D4AF6A;
+  --rose:    #C4956A;
+  --stone:   #9A9189;
+  --border:  rgba(184,149,63,0.25);
+  --white:   #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--ivory); color:var(--charcoal); font-family:'Jost',sans-serif; overflow-x:hidden; }
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  background: var(--linen);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-bar-left, .top-bar-right { display:flex; align-items:center; gap:4px; }
+
+/* tb-link */
+.tb-link {
+  position: relative;
+  color: var(--stone);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 4px 12px;
+  transition: color 0.3s;
+  overflow: hidden;
+}
+.tb-link:hover { color: var(--gold); }
+
+/* الخطين الراسيين */
+.tb-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1.5px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.tb-line-left  { left:  0; transform-origin: bottom; }
+.tb-line-right { right: 0; transform-origin: top;    }
+.tb-line.show  { transform: scaleY(1); }
+
+/* separator */
+.tb-separator { width:1px; height:14px; background:var(--border); margin:0 8px; }
+
+/* icons */
+.tb-icons { display:flex; gap:4px; }
+.tb-icon-link {
+  position: relative;
+  color: var(--stone);
+  font-size: 13px;
+  padding: 4px 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+  overflow: hidden;
+}
+.tb-icon-link:hover { color: var(--gold); }
+.tb-icon-link i { transition: transform 0.4s ease; display:inline-block; }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: var(--ivory);
+  border-bottom: 1px solid var(--border);
+  padding: 0 60px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.navbar.scrolled {
+  background: rgba(250,247,242,0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(28,28,28,0.08);
+}
+
+/* LOGO */
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: var(--charcoal);
+  text-decoration: none;
+  position: relative;
+  transition: letter-spacing 0.4s ease;
+}
+.logo span { color: var(--gold); }
+.logo.logo-hover { letter-spacing: 8px; }
+
+/* NAV LINKS */
+.nav-links { display:flex; list-style:none; gap:6px; align-items:center; }
+
+.nav-item {
+  position: relative;
+  color: var(--charcoal);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 14px;
+  transition: color 0.3s;
+  overflow: visible;
+}
+.nav-item:hover { color: var(--gold); }
+
+/* /* Corner animation  */
+.nav-line {
+  position: absolute;
+  background: var(--gold);
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  transition: width 0.6s ease, height 0.35s ease;
+}
+
+/* الضلع الأيسر — بيطلع من أسفل لفوق */
+.nav-line-left {
+  bottom: 0;
+  left: 0;
+  width: 1.5px !important;
+  height: 0;
+  transform-origin: bottom;
+}
+
+/* الضلع الأسفل — بيمشي من يسار ليمين */
+.nav-line-bottom {
+  bottom: 0;
+  left: 0;
+  height: 1.5px !important;
+  width: 0;
+}
+
+/* الضلع الأعلى — بيمشي من يسار ليمين */
+.nav-line-top {
+  top: 0;
+  left: 0;
+  height: 1.5px !important;
+  width: 0;
+}
+
+/* الضلع الأيمن — بيطلع من فوق لتحت */
+.nav-line-right {
+  top: 0;
+  right: 0;
+  width: 1.5px !important;
+  height: 0;
+}
+
+/* DROPDOWN */
+.dropdown { position: relative; }
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(28,28,28,0.12);
+  min-width: 360px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+.dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.drop-section-label {
+  color: var(--stone);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.drop-link {
+  display: block;
+  color: var(--charcoal);
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s;
+}
+.drop-link:hover { color: var(--gold); padding-left: 6px; }
+
+.chevron-icon { font-size: 9px; margin-left: 4px; transition: transform 0.3s; display:inline-block; }
+
+/* NAV ICONS */
+.nav-icons { display:flex; align-items:center; gap:4px; }
+.nav-icon-btn {
+  position: relative;
+  color: var(--charcoal);
+  font-size: 16px;
+  padding: 8px 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+  overflow: hidden;
+}
+.nav-icon-btn:hover { color: var(--gold); }
+
+.cart-count {
+  position: absolute; top: 0; right: 0;
+  background: var(--gold); color: var(--white);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  font-size: 10px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s;
+}
+/* ===== ANNOUNCE BAR ===== */
+.announce-bar {
+  background: var(--charcoal);
+  color: var(--ivory);
+  padding: 10px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+.announce-text strong { color: var(--gold-lt); }
+.announce-cta {
+  background: var(--gold);
+  color: var(--charcoal);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 6px 18px;
+  transition: transform 0.3s ease, letter-spacing 0.3s ease, background 0.3s;
+  display: inline-block;
+}
+.announce-cta:hover { background: var(--gold-lt); }
+
+/* ===== HERO ===== */
+.hero { position: relative; height: 100vh; overflow: hidden; }
+
+.slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.slide.active { opacity: 1; }
+
+.slide-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+.slide.active .slide-bg { transform: scale(1); }
+
+.slide-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, rgba(250,247,242,0.2) 0%, rgba(250,247,242,0.4) 55%, transparent 100%);
+}
+
+.slide-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 0 80px;
+  max-width: 650px;
+  position: relative;
+  z-index: 5;
+}
+
+.slide-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  margin-bottom: 22px;
+  width: fit-content;
+}
+
+.slide-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 6vw, 84px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+}
+.slide-title em { color: var(--gold); font-style: italic; }
+
+.slide-desc {
+  color: black;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+  font-weight: 300;
+  max-width: 420px;
+}
+
+.btn-hero {
+  display: inline-block;
+  border: 1.5px solid var(--charcoal);
+  color: var(--charcoal);
+  padding: 14px 38px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  z-index: 5;
+}
+
+/* Slider dots */
+.slider-dots {
+  position: absolute;
+  bottom: 36px; left: 80px;
+  display: flex; gap: 10px;
+  z-index: 10;
+}
+.dot {
+  width: 24px; height: 2px;
+  background: rgba(28,28,28,0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active { width: 52px; background: var(--gold); }
+
+/* Arrows */
+.slider-arrow {
+  position: absolute;
+  bottom: 28px;
+  width: 46px; height: 46px;
+  border: 1.5px solid rgba(28,28,28,0.25);
+  background: transparent;
+  color: var(--charcoal);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.arrow-prev { right: 116px; }
+.arrow-next { right: 60px; }
+.slider-arrow:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+/* ===== CATEGORIES ===== */
+.categories {
+  padding: 100px 60px;
+  background: var(--ivory);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 50px);
+  font-weight: 300;
+  color: var(--charcoal);
+}
+.section-line {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px auto 0;
+}
+
+/* Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.cat-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* الصورة */
+.cat-img-wrap {
+  overflow: hidden;
+  height: 480px;
+}
+.cat-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+/* الزووم لما hover */
+.cat-card:hover .cat-img-wrap img {
+  transform: scale(1.06);
+}
+
+/* الكلام فوق الصورة */
+.cat-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(28,28,28,0.88) 0%, transparent 100%);
+  transform: translateY(40px);
+  transition: transform 0.5s ease;
+}
+.cat-card:hover .cat-info {
+  transform: translateY(0);
+}
+
+.cat-tag {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.cat-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+.cat-desc {
+  color: rgba(250,247,242,0.75);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Shop Now — مخفي في الأول */
+.cat-link {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s, letter-spacing 0.3s ease;
+}
+.cat-card:hover .cat-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ===== TRENDING ===== */
+
+.trending{
+    width: 90%;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.trend-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.trend-header h2{
+    font-size: 42px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.trend-links{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.trend-links li{
+    cursor: pointer;
+    font-size: 20px;
+    color: #444;
+    position: relative;
+}
+
+.trend-links .active{
+    color: #c2a275;
+}
+
+.trend-links .active::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color:  #c2a275;;
+    bottom: -15px;
+    left: 0;
+}
+
+.trend-line{
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 25px 0 40px;
+}
+
+/* ===== GRID ===== */
+
+.trend-container{
+    display: grid;
+    grid-template-columns: 50px repeat(4 , 1fr) 50px;
+    gap: 25px;
+    align-items: center;
+}
+
+/* ===== CARD ===== */
+
+.trend-card{
+    text-align: center;
+}
+
+.img-box{
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.img-box img{
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+/* الصورة الأصلية */
+.main-img{
+    position: relative;
+    z-index: 1;
+}
+
+/* الصورة اللي بتظهر */
+.hover-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: rotateY(90deg);
+    transition: 1s;
+    z-index: 2;
+}
+
+/* hover */
+.img-box:hover .hover-img{
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+/* icons */
+
+.icons{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 5;
+
+    opacity: 0;
+    transition: .5s;
+}
+
+.img-box:hover .icons{
+    opacity: 1;
+    bottom: 30px;
+}
+
+.icon-box{
+    width: 60px;
+    height: 60px;
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 26px;
+    cursor: pointer;
+
+    transition: .4s;
+    border-radius: 10px;
+}
+
+.icon-box:hover{
+    background-color: #c2a275;
+    color: white;
+}
+
+/* ===== TEXT ===== */
+
+.trend-card h3{
+    margin-top: 18px;
+    font-size: 28px;
+    color: #333;
+    transition: .4s;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.trend-card:hover h3{
+   color: #c2a275;
+}
+
+.trend-card p{
+    margin-top: 12px;
+    font-size: 24px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.trend-card p span{
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 10px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* ===== ARROWS ===== */
+
+.arrow{
+    font-size: 40px;
+    color: #000000;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.arrow:hover{
+    color: #c2a275;
+}
+
+.trend-links li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-box {
+    text-decoration: none;
+    color: inherit;
+}
+/* ===== TESTIMONIAL ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+.testimonial {
+  font-family: 'Cormorant Garamond', serif;
+  width: 100%;
+  padding: 50px 0;
+  background-color: #ebe0cf;
+  position: relative;
+  overflow: hidden;
+}
+
+.testi-inner {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 120px;
+}
+
+.testi-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #000000;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: 'Cormorant Garamond', serif;
+  text-decoration: none;
+  transition: color 0.3s;
+  z-index: 2;
+  padding: 10px;
+  line-height: 1;
+}
+
+.testi-arrow:hover {
+  color: #c2a275;
+}
+
+.testi-arrow-prev { left: 30px; }
+.testi-arrow-next { right: 30px; }
+.testi-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* ===== YOU MAY LIKE ===== */
+
+.yml-section {
+    width: 90%;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.yml-header h2 {
+    font-size: 42px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+}
+
+.yml-container {
+    display: grid;
+    grid-template-columns: 50px repeat(4, 1fr) 50px;
+    gap: 25px;
+    align-items: center;
+}
+
+.yml-card {
+    text-align: center;
+}
+
+.yml-img-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.yml-img-box img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.yml-main-img {
+    position: relative;
+    z-index: 1;
+}
+
+/* الصورة بتنزل من فوق */
+.yml-hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 1s;
+    z-index: 2;
+}
+
+.yml-img-box:hover .yml-hover-img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.yml-icons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 5;
+    opacity: 0;
+    transition: .5s;
+}
+
+.yml-img-box:hover .yml-icons {
+    opacity: 1;
+    bottom: 30px;
+}
+
+.yml-icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    transition: .4s;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.yml-icon-box:hover {
+    background-color: #c2a275;
+    color: white;
+}
+
+.yml-card h3 {
+    margin-top: 18px;
+    font-size: 28px;
+    color: #333;
+    transition: .4s;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.yml-card:hover h3 {
+    color: #c2a275;
+}
+
+.yml-card p {
+    margin-top: 12px;
+    font-size: 24px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.yml-card p span {
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.yml-arrow {
+    font-size: 40px;
+    color: #000;
+    cursor: pointer;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.yml-arrow:hover {
+    color: #c2a275;
+}
+/* ===== LATEST NEWS ===== */
+
+.news-section {
+    width: 90%;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.news-title {
+    text-align: center;
+    font-size: 42px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 40px;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.news-card {
+    text-align: left;
+}
+
+/* الصورة */
+.news-img-box {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.news-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* hover الصورة بتكبر */
+.news-img-box:hover img {
+    transform: scale(1.07);
+}
+
+/* التاج */
+.news-tag {
+    font-size: 16px;
+    color: #999;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 10px;
+}
+
+/* العنوان */
+.news-heading {
+    font-size: 24px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 12px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+/* hover العنوان بيتلون */
+.news-heading:hover {
+    color: #c2a275;
+}
+
+/* الوصف */
+.news-desc {
+    font-size: 16px;
+    color: #666;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Read More */
+.news-read {
+    font-size: 16px;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.news-read:hover {
+    color: #c2a275;
+}
+/* ===== FEATURES ===== */
+
+.features-section {
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 40px 0;
+    background-color: #fafafa;
+}
+
+.features-container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* الـ wrapper اللي بيخبي اللي برا */
+.feature-icon-wrap {
+    width: 60px;
+    height: 55px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* الأيقونة الأصلية — رمادية فوق */
+.feature-icon-top {
+    position: absolute;
+    font-size: 48px;
+    color:var(--gold-lt);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* الأيقونة الملونة — متخبية تحت */
+.feature-icon-bottom {
+    position: absolute;
+    font-size: 48px;
+    color: black;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* hover — الأصلية بتطلع فوق */
+.feature-item:hover .feature-icon-top {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* hover — الملونة بتطلع من تحت */
+.feature-item:hover .feature-icon-bottom {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.feature-desc {
+    font-size: 15px;
+    color: #999;
+    font-family: 'Cormorant Garamond', serif;
+}
+/* ===== FOOTER ===== */
+
+.footer {
+    background-color: #2b1f14;
+    color: #ddd;
+    font-family: 'Cormorant Garamond', serif;
+    padding: 50px 0 20px;
+}
+
+/* النيوزليتر */
+.footer-newsletter {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-nl-left h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.footer-nl-left p {
+    font-size: 15px;
+    color: #aaa;
+}
+
+.footer-nl-mid {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    max-width: 550px;
+}
+
+.footer-input {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background: #3d2d1e;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.footer-input::placeholder {
+    color: #999;
+}
+
+.footer-sub-btn {
+    padding: 14px 28px;
+    background-color: #c2a275;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.footer-sub-btn:hover {
+    background-color: #a8895e;
+}
+
+.footer-nl-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social {
+    font-size: 22px;
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-social:hover {
+    color: #c2a275;
+}
+
+/* الخط الفاصل */
+.footer-line {
+    width: 90%;
+    margin: 20px auto;
+    height: 1px;
+    background-color: #4a3728;
+}
+
+/* الروابط */
+.footer-links-area {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.footer-logo span {
+    color: #c2a275;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.footer-col a {
+    display: block;
+    font-size: 15px;
+    color: #aaa;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #c2a275;
+}
+
+/* الكوبيرايت */
+.footer-copy {
+    text-align: center;
+    font-size: 15px;
+    color: #888;
+    padding-top: 10px;
+}
+
+/* القلب النابض */
+.footer-heart {
+    color: #c2a275;
+    display: inline-block;
+    animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(0.75); } 
+    50%  { transform: scale(0.4); }
+    75%  { transform: scale(0); } 
+    100% { transform: scale(1); }
+}
+.footer-heart {
+    color: #c2a275;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
